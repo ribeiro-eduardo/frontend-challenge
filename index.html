@@ -79,20 +79,26 @@
                     <label class="checkbox-inline">
                         <input type="checkbox" class="checkboxRam" value="96GB" name="ram"> 96GB
                     </label>
+                    <br>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" class="allRam"> Mark all
+                    </label>
                 </div>
                 <div class="form-group">
                     <label for="hdd">Harddisk type: </label>
                     <select class="form-control" id="hdd">
                         <option disabled>Select one option: </option>
-                        <option>SAS</option>
-                        <option>SATA</option>
-                        <option>SSD</option>
+                        <option value="">All types</option>
+                        <option value="SAS">SAS</option>
+                        <option value="SATA2">SATA2</option>
+                        <option value="SSD">SSD</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="location">Location: </label>
                     <select class="form-control" id="location">
-                        <option disabled>Select one option: </option>
+                        <option disabled>Select one option...</option>
+                        <option value="">All locations</option>
                     </select>
                 </div>
                 <button id="loadBtn" class="button btn-success" onclick="loadData()">Load</button><br>

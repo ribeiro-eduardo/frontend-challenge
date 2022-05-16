@@ -2,6 +2,14 @@ let table;
 window.onload = async function() {
     await loadLocations();
     table = $('#data').DataTable();
+
+    $('.allRam').change(function() {
+        if ($(this).is(":checked")) {
+            $('.checkboxRam').attr("checked", true);
+        } else {
+            $('.checkboxRam').attr("checked", false);
+        }
+    });
 };
 
 async function loadLocations() {
@@ -20,7 +28,7 @@ async function loadData() {
     table.clear().draw();
     $('.loading').show();
     const storageText = {
-        1: "0",            
+        1: "0GB",            
         2: "250GB",
         3: "500GB",
         4: "1TB",
