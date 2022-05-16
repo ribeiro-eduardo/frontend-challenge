@@ -14,37 +14,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js"
         integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
+        integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.css"
         integrity="sha512-SZgE3m1he0aEF3tIxxnz/3mXu/u/wlMNxQSnE0Cni9j/O8Gs+TjM9tm1NX34nRQ7GiLwUEzwuE3Wv2FLz2667w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap.min.css"
+        integrity="sha512-BMbq2It2D3J17/C7aRklzOODG1IQ3+MHw3ifzBHMBwGO/0yUqYmsStgBjI0z5EYlaDEFnvYV7gNYdD3vFLRKsA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/style.css" />
 </head>
-
-<style>
-    .slider.slider-horizontal {
-        width: 1000px;
-    }
-
-    #data {
-        display: none;
-    }
-
-    .col-centered {
-        margin: 0 auto;
-        float: none;
-    }
-
-    checkboxRam {
-        margin-right: 50px;
-        padding: 10px;
-        display: inline-block;
-        overflow: hidden
-    }
-</style>
 
 <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">LeaseWeb Challenge</a>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="https://leaseweb.com" target="_blank">
+            <img src="assets/img/logo.svg">
+        </a>
     </nav>
 
     <div class="container-fluid" style="text-align: center;">
@@ -107,25 +95,26 @@
                         <option disabled>Select one option: </option>
                     </select>
                 </div>
-                <button class="button btn-success" onclick="loadData()">Load</button>
+                <button id="loadBtn" class="button btn-success" onclick="loadData()">Load</button><br>
+                <img class="loading" src="assets/img/loading.gif">
+                <table id="data" class="table table-hover" style="border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th scope="col">Model</th>
+                            <th scope="col">RAM</th>
+                            <th scope="col">HDD</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyServers"></tbody>
+                </table>
             </div>
-            <table id="data" class="table table-hover" style="border-collapse: collapse;">
-                <thead>
-                    <tr>
-                        <th scope="col">Model</th>
-                        <th scope="col">RAM</th>
-                        <th scope="col">HDD</th>
-                        <th scope="col">Location</th>
-                        <th scope="col">Price</th>
-                    </tr>
-                </thead>
-                <tbody id="tbodyServers"></tbody>
-            </table>
             <div class="col-md-2"></div>
         </div>
         <div class="h-100row align-items-center">
             <div class="col-md-8">
-                
+
             </div>
 
         </div>

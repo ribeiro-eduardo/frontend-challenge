@@ -1,14 +1,13 @@
-
+let table;
 window.onload = async function() {
     await loadLocations();
-    // $("#ex18-label-1").slider({});
+    table = $('#data').DataTable();
 };
 
 async function loadLocations() {
     const url = "http://localhost:8080/location";
     const response = await fetch(url);
     const responseJson = await response.json();
-    // console.log(responseJson.data)
 
     const locationSelect = $('#location');
     responseJson.data.map((location) => {
@@ -18,6 +17,8 @@ async function loadLocations() {
 }
 
 async function loadData() {
+    table.clear().draw();
+    $('.loading').show();
     const storageText = {
         1: "0",            
         2: "250GB",
@@ -58,21 +59,17 @@ async function loadData() {
     const response = await fetch(url);
     const responseJson = await response.json();
 
-    console.log(responseJson);
-
     const tbody = $('#tbodyServers');
+    tbody.empty();
     responseJson.data.map((server) => {
-        const trContent = `
-        <tr>
-            <td>${server.model}</td>
-            <td>${server.ram}</td>
-            <td>${server.hdd}</td>
-            <td>${server.location}</td>
-            <td>${server.price}</td>
-        </tr>`;
-
-        tbody.append(trContent);
+        table.row.add([
+            server.model,
+            server.ram,
+            server.hdd,
+            server.location,
+            server.price
+        ]).draw().node();
     });
+    $('.loading').hide();
     $('#data').show();
-    
 }

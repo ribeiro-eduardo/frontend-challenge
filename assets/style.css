@@ -1,0 +1,23 @@
+.slider.slider-horizontal {
+    width: 1000px;
+}
+
+#data {
+    display: none;
+}
+
+.col-centered {
+    margin: 0 auto;
+    float: none;
+}
+
+checkboxRam {
+    margin-right: 50px;
+    padding: 10px;
+    display: inline-block;
+    overflow: hidden
+}
+
+.loading {
+    display: none
+}
